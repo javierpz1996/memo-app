@@ -55,7 +55,7 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   // Estado para la búsqueda
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm] = useState("");
 
   // Estados para controlar qué video está en hover
   const [hoveredMovieId, setHoveredMovieId] = useState<number | null>(null);
