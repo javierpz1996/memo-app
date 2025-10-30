@@ -36,7 +36,7 @@ const Home = () => {
   const seriesRef = useRef<HTMLDivElement | null>(null);
 
   const scrollContainer = (
-    ref: React.RefObject<HTMLDivElement>,
+    ref: React.RefObject<HTMLDivElement | null>,
     direction: "left" | "right"
   ) => {
     const el = ref.current;

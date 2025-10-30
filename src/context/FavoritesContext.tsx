@@ -1,4 +1,5 @@
-import { createContext, useContext, useEffect, useMemo, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import type { ReactNode } from "react";
 import { useAuth } from "./AuthContext";
 import { db } from "../firebase";
 import { collection, onSnapshot, getDocs } from "firebase/firestore";
@@ -30,7 +31,11 @@ export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
     // Precarga inmediata (en caso de que onSnapshot tarde)
     getDocs(ref)
       .then((snap) => {
-        const items: FavoriteItemPayload[] = snap.docs.map((d) => ({ id: Number(d.id), ...(d.data() as FavoriteItemPayload) }));
+        const items: FavoriteItemPayload[] = snap.docs.map((d) => {
+          const data = d.data() as FavoriteItemPayload;
+          const { id: _ignored, ...rest } = data as any;
+          return { id: Number(d.id), ...rest } as FavoriteItemPayload;
+        });
         setFavorites(items);
       })
       .catch((e) => console.error("Error precargando favoritos:", e))
@@ -39,7 +44,11 @@ export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
     const unsub = onSnapshot(
       ref,
       (snap) => {
-        const items: FavoriteItemPayload[] = snap.docs.map((d) => ({ id: Number(d.id), ...(d.data() as FavoriteItemPayload) }));
+        const items: FavoriteItemPayload[] = snap.docs.map((d) => {
+          const data = d.data() as FavoriteItemPayload;
+          const { id: _ignored, ...rest } = data as any;
+          return { id: Number(d.id), ...rest } as FavoriteItemPayload;
+        });
         setFavorites(items);
         // no tocar loading aquí si ya se resolvió arriba; pero si aún está true, lo marcamos en false
         setLoading(false);
