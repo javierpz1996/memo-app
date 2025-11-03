@@ -2,27 +2,21 @@
 
 Aplicación web para descubrir y gestionar películas y series favoritas.
 
+## 🔑 Configuración de API Key
+
+Para que la aplicación funcione, necesitas configurar tu API key de TMDB:
+
+1. Obtén tu API key gratuita en: https://www.themoviedb.org/settings/api
+2. Abre el archivo `src/api/tmdb.ts`
+3. Reemplaza `"TU_API_KEY_AQUI"` en la línea 2 con tu API key real
+
+```typescript
+const API_KEY = "tu_api_key_aqui";
+```
+
 ## 🚀 Despliegue en Vercel
 
-### Configuración de Variables de Entorno
-
-Para que la aplicación funcione correctamente en Vercel, debes configurar las siguientes variables de entorno:
-
-1. Ve a tu proyecto en [Vercel Dashboard](https://vercel.com/dashboard)
-2. Navega a **Settings** → **Environment Variables**
-3. Agrega la siguiente variable:
-
-   - **Nombre**: `VITE_TMDB_API_KEY`
-   - **Valor**: Tu API key de TMDB (obtén una gratis en https://www.themoviedb.org/settings/api)
-
-4. **IMPORTANTE**: Después de agregar la variable de entorno, debes hacer un nuevo deploy:
-   - Ve a **Deployments**
-   - Haz clic en los tres puntos (⋯) del último deployment
-   - Selecciona **Redeploy**
-
-### Nota sobre Variables de Entorno
-
-Las variables de entorno que empiezan con `VITE_` son expuestas al cliente en aplicaciones Vite. Asegúrate de configurarlas correctamente en Vercel para que los fetchs funcionen.
+El proyecto está listo para desplegarse en Vercel sin necesidad de configurar variables de entorno.
 
 ---
 

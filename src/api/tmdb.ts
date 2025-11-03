@@ -1,11 +1,6 @@
-const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+// API Key de TMDB - Reemplaza con tu propia API key
+const API_KEY = "c0e83bd294ff182c5ee15c27ee0ced85";
 const BASE_URL = "https://api.themoviedb.org/3";
-
-// Validar que la API_KEY esté configurada
-if (!API_KEY) {
-  console.error("⚠️ VITE_TMDB_API_KEY no está configurada. Por favor, configura esta variable de entorno en Vercel.");
-  throw new Error("API_KEY no configurada. Configura VITE_TMDB_API_KEY en las variables de entorno de Vercel.");
-}
 
 
 //Para buscar todo el contenido, series y peliculas
