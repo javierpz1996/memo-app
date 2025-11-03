@@ -1,4 +1,30 @@
-# React + TypeScript + Vite
+# Películas Ver - React + TypeScript + Vite
+
+Aplicación web para descubrir y gestionar películas y series favoritas.
+
+## 🚀 Despliegue en Vercel
+
+### Configuración de Variables de Entorno
+
+Para que la aplicación funcione correctamente en Vercel, debes configurar las siguientes variables de entorno:
+
+1. Ve a tu proyecto en [Vercel Dashboard](https://vercel.com/dashboard)
+2. Navega a **Settings** → **Environment Variables**
+3. Agrega la siguiente variable:
+
+   - **Nombre**: `VITE_TMDB_API_KEY`
+   - **Valor**: Tu API key de TMDB (obtén una gratis en https://www.themoviedb.org/settings/api)
+
+4. **IMPORTANTE**: Después de agregar la variable de entorno, debes hacer un nuevo deploy:
+   - Ve a **Deployments**
+   - Haz clic en los tres puntos (⋯) del último deployment
+   - Selecciona **Redeploy**
+
+### Nota sobre Variables de Entorno
+
+Las variables de entorno que empiezan con `VITE_` son expuestas al cliente en aplicaciones Vite. Asegúrate de configurarlas correctamente en Vercel para que los fetchs funcionen.
+
+---
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

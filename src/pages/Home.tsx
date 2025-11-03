@@ -125,6 +125,10 @@ const Home = () => {
         setMoviesTrending(moviesWithTrailers);
       } catch (error) {
         console.error("Error al obtener las películas en tendencia", error);
+        // Mostrar error más detallado en consola para debugging
+        if (error instanceof Error) {
+          console.error("Detalles del error:", error.message);
+        }
       } finally {
         setLoading(false);
       }
@@ -161,6 +165,10 @@ const Home = () => {
         setSeriesTrending(seriesWithTrailers);
       } catch (error) {
         console.error("Error al obtener las series en tendencia", error);
+        // Mostrar error más detallado en consola para debugging
+        if (error instanceof Error) {
+          console.error("Detalles del error:", error.message);
+        }
       } finally {
         setLoading(false);
       }

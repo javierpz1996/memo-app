@@ -1,6 +1,12 @@
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const BASE_URL = "https://api.themoviedb.org/3";
 
+// Validar que la API_KEY esté configurada
+if (!API_KEY) {
+  console.error("⚠️ VITE_TMDB_API_KEY no está configurada. Por favor, configura esta variable de entorno en Vercel.");
+  throw new Error("API_KEY no configurada. Configura VITE_TMDB_API_KEY en las variables de entorno de Vercel.");
+}
+
 
 //Para buscar todo el contenido, series y peliculas
 export const searchMulti = async (query: string) => {
